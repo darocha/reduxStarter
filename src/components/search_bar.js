@@ -11,11 +11,21 @@ class SearchBar extends Component {
 		//'super' se utiliza para traer propiedades de la clase 'Component', de la cual extiende SearchBar
 		super(props);
 
-		this.state = { term: '' };
+		this.state = { term: 'default value' };
 	}
 
 	render() {
-		return <input onChange={event => this.setState({ term: event.target.value })}/>;
+		return (
+			<div>
+				<input 
+					value={this.state.term}
+					onChange={event => this.setState({ term: event.target.value })}
+				/>
+				<span>
+					El valor ingresado es: {this.state.term}
+				</span>
+			</div>
+		)
 	}
 };
 
